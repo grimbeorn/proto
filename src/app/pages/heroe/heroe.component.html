@@ -1,0 +1,50 @@
+<h1><small>Proto Name</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/heroes">
+      <i class="fa fa-arrow-left"></i>
+      back
+    </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-group">
+                <label>DB id</label>
+                <input type="text" class="form-control" placeholder="firebase ID" [(ngModel)]="heroe.id" name="id" disabled="disabled">
+                <small class="form-text text-muted">self-generated cell</small>
+            </div>
+            <div class="form-group">
+                <label>WT [s]</label>
+                <input type="text" class="form-control" placeholder="Work Time" [(ngModel)]="heroe.nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label>Sen [A]</label>
+                <input type="text" class="form-control" [(ngModel)]="heroe.poder" name="poder" placeholder="Sensibility">
+            </div>
+            <div class="form-group">
+                <label>Status [1,0]</label>
+                <br>
+                <button *ngIf="heroe.vivo" (click)="heroe.vivo = false" class="btn btn-outline-success w-50" type="button">
+                    <i class="fas fa-check"></i>
+                    alive
+                </button>
+                <button *ngIf="!heroe.vivo" (click)="heroe.vivo = true" class="btn btn-outline-danger w-50" type="button">
+                    <i class="fas fa-times"></i>
+                    dead
+                </button>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
