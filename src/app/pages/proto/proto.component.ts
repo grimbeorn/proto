@@ -3,30 +3,30 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { HeroeModel } from '../../models/heroe.model';
-import { HeroesService } from '../../services/heroes.service';
+import { ProtoModel } from '../../models/proto.model';
+import { ProtosService } from '../../services/protos.service';
 
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-heroe',
-  templateUrl: './heroe.component.html'
+  selector: 'app-proto',
+  templateUrl: './proto.component.html'
 })
-export class HeroeComponent implements OnInit {
+export class ProtoComponent implements OnInit {
 
-  heroe: HeroeModel = new HeroeModel();
+  proto: ProtoModel = new ProtoModel();
 
-  constructor( private heroesService: HeroesService, private route: ActivatedRoute ) { }
+  constructor( private protosService: ProtosService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
 
     const id = this.route.snapshot.paramMap.get('id');
 
     if ( id !== 'nuevo' ) {
-      this.heroesService.getHeroe( id )
-        .subscribe( (resp: HeroeModel) => {
-          this.heroe = resp;
-          this.heroe.id = id;
+      this.protosService.getProto( id )
+        .subscribe( (resp: ProtoModel) => {
+          this.proto = resp;
+          this.proto.id = id;
         });
     }
   }
@@ -47,15 +47,15 @@ export class HeroeComponent implements OnInit {
 
     let peticion: Observable<any>;
 
-    if ( this.heroe.id ) {
-      peticion = this.heroesService.actualizarHeroe( this.heroe );
+    if ( this.proto.id ) {
+      peticion = this.protosService.actualizarProto( this.proto );
     } else {
-      peticion = this.heroesService.crearHeroe( this.heroe );
+      peticion = this.protosService.crearProto( this.proto );
     }
 
     peticion.subscribe( resp => {
       Swal.fire({
-        title: this.heroe.nombre,
+        title: this.proto.nombre,
         text: 'updated successfully',
         icon: 'success'
       });

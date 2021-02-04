@@ -1,6 +1,6 @@
 
 
-export class HeroeModel {
+export class ProtoModel {
 
     id: string;
     nombre: string;

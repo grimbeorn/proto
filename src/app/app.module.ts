@@ -6,14 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeroeComponent } from './pages/heroe/heroe.component';
-import { HeroesComponent } from './pages/heroes/heroes.component';
+import { ProtoComponent } from './pages/proto/proto.component';
+import { ProtosComponent } from './pages/protos/protos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroeComponent,
-    HeroesComponent
+    ProtoComponent,
+    ProtosComponent
   ],
   imports: [
     BrowserModule,

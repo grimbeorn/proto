@@ -3,7 +3,7 @@
 
 <div class="row text-right">
     <div class="col">
-        <button class="btn btn-danger" routerLink="/heroes">
+        <button class="btn btn-danger" routerLink="/protos">
       <i class="fa fa-arrow-left"></i>
       back
     </button>
@@ -15,25 +15,25 @@
         <form (ngSubmit)="guardar( f )" #f="ngForm">
             <div class="form-group">
                 <label>DB id</label>
-                <input type="text" class="form-control" placeholder="firebase ID" [(ngModel)]="heroe.id" name="id" disabled="disabled">
+                <input type="text" class="form-control" placeholder="firebase ID" [(ngModel)]="proto.id" name="id" disabled="disabled">
                 <small class="form-text text-muted">self-generated cell</small>
             </div>
             <div class="form-group">
                 <label>WT [s]</label>
-                <input type="text" class="form-control" placeholder="Work Time" [(ngModel)]="heroe.nombre" name="nombre" required>
+                <input type="text" class="form-control" placeholder="Work Time" [(ngModel)]="proto.nombre" name="nombre" required>
             </div>
             <div class="form-group">
                 <label>Sen [A]</label>
-                <input type="text" class="form-control" [(ngModel)]="heroe.poder" name="poder" placeholder="Sensibility">
+                <input type="text" class="form-control" [(ngModel)]="proto.poder" name="poder" placeholder="Sensibility">
             </div>
             <div class="form-group">
                 <label>Status [1,0]</label>
                 <br>
-                <button *ngIf="heroe.vivo" (click)="heroe.vivo = false" class="btn btn-outline-success w-50" type="button">
+                <button *ngIf="proto.vivo" (click)="proto.vivo = false" class="btn btn-outline-success w-50" type="button">
                     <i class="fas fa-check"></i>
                     alive
                 </button>
-                <button *ngIf="!heroe.vivo" (click)="heroe.vivo = true" class="btn btn-outline-danger w-50" type="button">
+                <button *ngIf="!proto.vivo" (click)="proto.vivo = true" class="btn btn-outline-danger w-50" type="button">
                     <i class="fas fa-times"></i>
                     dead
                 </button>
